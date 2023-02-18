@@ -2,6 +2,7 @@ body {
     font-family: "Gloria Hallelujah", cursive;
     background-color: darkslategray;
     background-size: cover;
+    color: whitesmoke;
 }
 
 .flex-container {

@@ -1,4 +1,14 @@
-<div>
-    <hr />
-    Login
+<div class="input-group">
+    <input id="inputUsername" type="text" class="form-control" aria-label="Username input" />
+    <button class="btn btn-outline-light" type="button" onClick="login()">login</button>
 </div>
+
+<script>
+    const login = () => {
+        const username = document.getElementById("inputUsername").value;
+        if (username === "") {
+            return;
+        }
+        console.log("Attempting to login with username: " + username);
+    };
+</script>
