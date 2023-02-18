@@ -4,10 +4,14 @@
         <title>Onitama</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="/static/firefly.css" />
         <link rel="stylesheet" href="/static/style.css" />
         <script src="/static/logic.js"></script>
     </head>
     <body>
-        <div>{% block content %} {% endblock %}</div>
+        <div class="flex-container">{% block content %} {% endblock %}</div>
     </body>
 </html>
