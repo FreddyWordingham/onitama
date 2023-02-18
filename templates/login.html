@@ -1,14 +1,41 @@
 <div class="input-group">
     <input id="inputUsername" type="text" class="form-control" aria-label="Username input" />
-    <button class="btn btn-outline-light" type="button" onClick="login()">login</button>
 </div>
+<p></p>
+<div class="input-group">
+    <input id="inputPassword" type="password" class="form-control" aria-label="Password input" />
+</div>
+<p></p>
+<button class="btn btn-outline-light" type="button" onClick="login()">login</button>
 
 <script>
     const login = () => {
+        localStorage.removeItem("username");
+
         const username = document.getElementById("inputUsername").value;
-        if (username === "") {
+        const password = document.getElementById("inputPassword").value;
+        if (username === "" || password === "") {
             return;
         }
-        console.log("Attempting to login with username: " + username);
+
+        fetch("/login", {
+            method: "POST",
+            body: JSON.stringify({
+                username: username,
+                password: password,
+            }),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        })
+            .then((response) => response.json())
+            .then((response) => {
+                if (response) {
+                    localStorage.setItem("username", username);
+                }
+            })
+            .catch((error) => {
+                console.log("ERROR: " + error);
+            });
     };
 </script>
